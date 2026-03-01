@@ -8,7 +8,7 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: FaGithub, label: 'GitHub', href: 'https://github.com/DevBytes-J', clickable: true },
-    { icon: FaLinkedin, label: 'LinkedIn', href: '#', clickable: false },
+    { icon: FaLinkedin, label: 'LinkedIn', href: 'https://linkedin.com/in/joanna-bassey-554004338', clickable: true},
     { icon: FaXTwitter, label: 'X (Twitter)', href: 'https://x.com/Bassey_Joanna', clickable: true }
   ];
 
