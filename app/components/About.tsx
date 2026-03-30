@@ -15,12 +15,12 @@ export default function About() {
               <p>
                 I&apos;m a passionate frontend developer dedicated to crafting
                 exceptional digital experiences that blend aesthetics with
-                functionality. With over 1 year of experience, I specialize in
-                building responsive, user-focused interfaces that not only look
+                functionality. With over 2+ years of experience, I specialize in
+                building responsive, user focused interfaces that not only look
                 stunning but perform flawlessly.
               </p>
               <p>
-                My approach combines modern design principles with cutting-edge
+                My approach combines modern design principles with cutting edge
                 technologies to deliver solutions that exceed expectations. I
                 believe in the power of clean code, smooth animations, and
                 intuitive user experiences to create products that users love.

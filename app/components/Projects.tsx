@@ -17,8 +17,23 @@ export default function Projects() {
   const [isPaused, setIsPaused] = useState(false);
 
   const projects = [
-    {
+           {
       id: 1,
+      title: "Tracky - Track your expenses.",
+      description:
+        "Track your expenses and income with ease.",
+      tech: [
+        "NextJs",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Pixel-Perfect Responsive Design",
+      ],
+      icon: FaHouseChimney,
+      image: "/trackyt.png",
+      link: "https://trackyt-f.onrender.com/",
+    },
+    {
+      id: 2,
       title: "PostSyncer - AI Video Creator",
       description:
         "PostSyncer helps you manage all your social accounts, schedule content, and create AI videos in minutes.",
@@ -34,7 +49,7 @@ export default function Projects() {
       link: "https://postsyncc.vercel.app/",
     },
     {
-      id: 2,
+      id: 3,
       title: "Tio - Feel the home.",
       description:
         "Explore homes where every room is designed with comfort and style in mind.",
@@ -48,8 +63,23 @@ export default function Projects() {
       image: "/tio.png",
       link: "https://tio-seven.vercel.app/",
     },
+        {
+      id: 4,
+      title: "Super𝕏",
+      description:
+        "The All-in-One Growth OS for Serious 𝕏 Creators",
+      tech: [
+        "NextJs",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Pixel-Perfect Responsive Design",
+      ],
+      icon: FaHouseChimney,
+      image: "/superx.png",
+      link: "https://studiox-flame-five.vercel.app/",
+    },
     {
-      id: 3,
+      id: 5,
       title: "E-Commerce Product Page",
       description:
         "Frontend Mentor challenge - E-commerce product page with cart functionality",
@@ -59,7 +89,7 @@ export default function Projects() {
       link: "https://frontend-mentor-e-commerce-product-three.vercel.app/",
     },
     {
-      id: 4,
+      id: 6,
       title: "Audiophile E-Commerce",
       description:
         "Multi-page e-commerce website for audio equipment with modern design",
@@ -69,7 +99,7 @@ export default function Projects() {
       link: "https://audiophile-ecommerce-website-527b.vercel.app/",
     },
     {
-      id: 5,
+      id: 7,
       title: "Space Tourism Website",
       description:
         "Interactive space tourism website with stunning visuals and animations",
@@ -79,7 +109,7 @@ export default function Projects() {
       link: "https://space-tourism-website-puce-chi.vercel.app/",
     },
     {
-      id: 6,
+      id: 8,
       title: "Profile Card UI",
       description:
         "Clean and modern profile card component with responsive design",

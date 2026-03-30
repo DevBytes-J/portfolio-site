@@ -3,14 +3,14 @@ import { SiNextdotjs, SiTailwindcss, SiTypescript } from "react-icons/si";
 
 export default function Skills() {
   const skills = [
-    { icon: FaReact, name: "React", delay: 100 },
-    { icon: SiNextdotjs, name: "Next.js", delay: 150 },
-    { icon: FaJs, name: "JavaScript", delay: 200 },
-    { icon: SiTypescript, name: "TypeScript", delay: 250 },
     { icon: FaCss3Alt, name: "CSS3", delay: 300 },
     { icon: SiTailwindcss, name: "Tailwind", delay: 350 },
-    { icon: FaNode, name: "Node.js", delay: 400 },
+    { icon: FaJs, name: "JavaScript", delay: 200 },
+    { icon: SiTypescript, name: "TypeScript", delay: 250 },
+    { icon: FaReact, name: "React", delay: 100 },
+    { icon: SiNextdotjs, name: "Next.js", delay: 150 },
     { icon: FaGitAlt, name: "Git", delay: 450 },
+    { icon: FaNode, name: "Node.js", delay: 400 },
   ];
 
   return (
