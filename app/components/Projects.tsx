@@ -11,7 +11,8 @@ import {
   FaUser,
 } from "react-icons/fa";
 import { FaHouseChimney } from "react-icons/fa6";
-
+import { GiReceiveMoney } from "react-icons/gi";
+import { FaXTwitter } from "react-icons/fa6";
 export default function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -28,7 +29,7 @@ export default function Projects() {
         "Framer Motion",
         "Pixel-Perfect Responsive Design",
       ],
-      icon: FaHouseChimney,
+      icon: GiReceiveMoney,
       image: "/trackyt.png",
       link: "https://trackyt-f.onrender.com/",
     },
@@ -74,7 +75,7 @@ export default function Projects() {
         "Framer Motion",
         "Pixel-Perfect Responsive Design",
       ],
-      icon: FaHouseChimney,
+      icon: FaXTwitter,
       image: "/superx.png",
       link: "https://studiox-flame-five.vercel.app/",
     },
