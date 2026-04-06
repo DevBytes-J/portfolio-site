@@ -1,66 +1,48 @@
 "use client";
-
 import { useState, useEffect } from "react";
-import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { HiMenuAlt3 } from "react-icons/hi";
 
-interface NavbarProps {
-  onMenuClick: () => void;
-}
+const NAV_LINKS = [
+  { name: "Experience", href: "#experience" },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
+
+interface NavbarProps { onMenuClick: () => void; }
 
 export default function Navbar({ onMenuClick }: NavbarProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Experience", href: "#experience" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
-  ];
-
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "py-4 bg-black/80 backdrop-blur-md border-b border-yellow-600/20"
-          : "py-6 bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        {/* Logo */}
-        <a href="#" className="text-2xl font-bold">
-          <span className="bg-linear-to-r from-white to-yellow-600 bg-clip-text text-transparent italic">
-           &lt;/&gt;
-          </span>
-        </a>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled ? "py-3 bg-black/70 backdrop-blur-xl border-b border-white/5" : "py-6 bg-transparent"
+    }`}>
+      <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
+        <a href="#" className="text-xl font-black gold-text italic">&lt;/&gt;</a>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex space-x-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-gray-300 hover:text-yellow-500 transition-colors duration-300"
-            >
+        <div className="hidden md:flex items-center gap-8">
+          {NAV_LINKS.map((link) => (
+            <a key={link.name} href={link.href}
+              onClick={() => setActive(link.name)}
+              className={`text-xs tracking-widest uppercase transition-colors duration-300 ${
+                active === link.name ? "text-white" : "text-gray-500 hover:text-gray-200"
+              }`}>
               {link.name}
             </a>
           ))}
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          onClick={onMenuClick}
-          className="md:hidden text-white p-2 hover:text-yellow-500 transition-colors cursor-pointer"
-        >
-          <HiMenuAlt3 className="text-3xl" />
+        <button onClick={onMenuClick} className="md:hidden text-gray-400 hover:text-white transition-colors">
+          <HiMenuAlt3 className="text-2xl" />
         </button>
       </div>
     </nav>
