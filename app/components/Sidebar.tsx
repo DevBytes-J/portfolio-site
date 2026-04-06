@@ -28,22 +28,23 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
       {/* Sidebar Content */}
       <aside
-        className={`fixed top-0 right-0 h-full w-64 bg-zinc-950 border-l border-yellow-600/20 z-70 transition-transform duration-300 md:hidden ${
+        className={`fixed top-0 right-0 h-full w-64 bg-zinc-950 border-l border-white/10 z-70 transition-transform duration-300 md:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full p-6">
           <div className="flex justify-between items-center mb-12">
-            <span className="text-xl font-bold bg-linear-to-r from-white to-yellow-600 bg-clip-text text-transparent italic">
-              JB.
-            </span>
-            <button
-              onClick={onClose}
-              className="text-white hover:text-yellow-500 transition-colors cursor-pointer"
-            >
-              <HiX className="text-3xl" />
-            </button>
+            <a href="#" className="text-xl font-black gold-text italic">
+              &lt;/&gt;
+            </a>
           </div>
+
+          <button
+            onClick={onClose}
+            className="absolute top-5 right-5 text-white hover:text-white transition-colors cursor-pointer"
+          >
+            <HiX className="text-3xl" />
+          </button>
 
           <nav className="flex flex-col space-y-6">
             {navLinks.map((link) => (
@@ -51,14 +52,14 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 key={link.name}
                 href={link.href}
                 onClick={onClose}
-                className="text-lg font-medium text-gray-300 hover:text-yellow-500 transition-colors duration-300"
+                className="text-lg font-medium text-gray-300 hover:text-white transition-colors duration-300"
               >
                 {link.name}
               </a>
             ))}
           </nav>
 
-          <div className="mt-auto pt-8 border-t border-yellow-600/10 text-center">
+          <div className="mt-auto pt-8 border-t border-white/8 text-center">
             <p className="text-sm text-gray-500">© 2026 Joanna Bassey</p>
           </div>
         </div>
