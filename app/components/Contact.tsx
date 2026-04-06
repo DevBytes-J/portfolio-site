@@ -59,16 +59,16 @@ export default function Contact() {
             </p>
 
             <div className="space-y-4 mb-10">
-              <a href="mailto:joannabassey19@gmail.com" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300 group">
+              <a href="mailto:joannabassey19@example.com" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300 group">
                 <div className="w-10 h-10 rounded-full border border-white/10 group-hover:border-white/20 flex items-center justify-center transition-colors duration-300">
                   <FaEnvelope className="text-sm" />
                 </div>
-                <span className="text-sm">joannabassey@example.com</span>
+                <span className="text-sm">joannabassey19@gmail.com</span>
               </a>
             </div>
 
             <div className="flex gap-3">
-              {[
+              {[ 
                 { icon: FaGithub, href: "https://github.com/DevBytes-J", label: "GitHub" },
                 { icon: FaLinkedin, href: "https://linkedin.com/in/joanna-bassey-554004338", label: "LinkedIn" },
                 { icon: FaXTwitter, href: "https://x.com/Bassey_Joanna", label: "Twitter" },
