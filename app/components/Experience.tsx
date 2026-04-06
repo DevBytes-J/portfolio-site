@@ -2,8 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 
 const STATS = [
-  { value: 2, suffix: "+", label: "Years of Experience", desc: "Building production-grade interfaces" },
-  { value: 40, suffix: "+", label: "Projects Shipped", desc: "Across various industries" },
+  { value: 2, suffix: "+", label: "Years of Experience"},
+  { value: 40, suffix: "+", label: "Projects Shipped"},
 ];
 
 function Counter({ target, suffix, active }: { target: number; suffix: string; active: boolean }) {

@@ -54,12 +54,12 @@ export default function Contact() {
           {/* Left: info */}
           <div className={`lg:col-span-2 transition-all duration-700 delay-200 ${vis ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
             <p className="text-gray-400 leading-relaxed mb-10">
-              I&apos;m currently available for freelance work and full-time opportunities.
+              I&apos;m currently available for freelance work and fulltime opportunities.
               If you have a project that needs a skilled frontend developer, let&apos;s talk.
             </p>
 
             <div className="space-y-4 mb-10">
-              <a href="mailto:joannabassey@example.com" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300 group">
+              <a href="mailto:joannabassey19@gmail.com" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300 group">
                 <div className="w-10 h-10 rounded-full border border-white/10 group-hover:border-white/20 flex items-center justify-center transition-colors duration-300">
                   <FaEnvelope className="text-sm" />
                 </div>

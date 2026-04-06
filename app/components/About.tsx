@@ -68,8 +68,8 @@ export default function About() {
               building responsive, user-focused interfaces that perform flawlessly.
             </p>
             <p>
-              My approach combines modern design principles with cutting-edge technologies to deliver
-              solutions that exceed expectations — clean code, smooth animations, and intuitive UX.
+              My approach combines modern design principles with edge cutting technologies to deliver
+              solutions that exceed expectations clean code, smooth animations, and intuitive UX.
             </p>
           </div>
 
