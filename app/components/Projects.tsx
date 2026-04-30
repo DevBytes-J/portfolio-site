@@ -92,7 +92,7 @@ const PROJECTS = [
     description: "Clean and modern profile card component.",
     tech: ["HTML", "CSS", "JavaScript"],
     icon: FaUser,
-    image: "/profile.png",
+    image: "/mprofile.png",
     link: "https://profile-i14.vercel.app/",
   },
 ];
