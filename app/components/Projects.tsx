@@ -90,10 +90,10 @@ const PROJECTS = [
     title: "Profile Card",
     subtitle: "UI Component",
     description: "Clean and modern profile card component.",
-    tech: ["HTML", "CSS"],
+    tech: ["HTML", "CSS", "JavaScript"],
     icon: FaUser,
     image: "/profile.png",
-    link: "https://profile-card-ui-five.vercel.app/",
+    link: "https://profile-i14.vercel.app/",
   },
 ];
 
