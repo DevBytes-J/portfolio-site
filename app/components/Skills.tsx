@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { FaReact, FaJs, FaCss3Alt, FaNode, FaGitAlt } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiTypescript, SiFramer, SiFigma } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss, SiTypescript, SiFramer } from "react-icons/si";
 
 const SKILLS = [
   { icon: FaReact, name: "React", level: 60, color: "#61DAFB" },
@@ -13,7 +13,6 @@ const SKILLS = [
   { icon: SiFramer, name: "Framer Motion", level: 70, color: "#BB4FFF" },
   { icon: FaNode, name: "Node.js", level: 70, color: "#68A063" },
   { icon: FaGitAlt, name: "Git", level: 88, color: "#F05032" },
-  { icon: SiFigma, name: "Figma", level: 75, color: "#F24E1E" },
 ];
 
 export default function Skills() {

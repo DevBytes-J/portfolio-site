@@ -8,11 +8,24 @@ import {
   FaRocket,
   FaHashtag,
   FaUser,
+  FaArrowRight,
+  FaChevronLeft,
+  FaChevronRight,
 } from "react-icons/fa";
 import { FaHouseChimney, FaXTwitter } from "react-icons/fa6";
 import { GiReceiveMoney } from "react-icons/gi";
 
 const PROJECTS = [
+  {
+    id: 5,
+    title: "Open Profile",
+    subtitle: "Profile Platform",
+    description: "Create One Searchable Profile People Can Find And Trust.",
+    tech: ["Next.js", "Tailwind CSS"],
+    icon: FaUser,
+    image: "/open.png",
+    link: "https://open-profile.hng14.com",
+  },
   {
     id: 1,
     title: "Trackyt",
@@ -21,7 +34,7 @@ const PROJECTS = [
     tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
     icon: GiReceiveMoney,
     image: "/trackyt.png",
-    link: "https://trackyt-f.onrender.com/",
+    link: "https://trackyt-app.onrender.com/",
   },
   {
     id: 2,
@@ -29,7 +42,7 @@ const PROJECTS = [
     subtitle: "AI Video Creator",
     description:
       "Manage social accounts, schedule content, and create AI videos in minutes.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     icon: FaHashtag,
     image: "/postsync.png",
     link: "https://postsyncc.vercel.app/",
@@ -54,46 +67,6 @@ const PROJECTS = [
     icon: FaXTwitter,
     image: "/superx.png",
     link: "https://studiox-flame-five.vercel.app/",
-  },
-  {
-    id: 5,
-    title: "E-Commerce",
-    subtitle: "Product Page",
-    description: "Frontend Mentor challenge with full cart functionality.",
-    tech: ["React", "CSS", "JavaScript"],
-    icon: FaShoppingCart,
-    image: "/ecommerce.png",
-    link: "https://frontend-mentor-e-commerce-product-three.vercel.app/",
-  },
-  {
-    id: 6,
-    title: "Audiophile",
-    subtitle: "E-Commerce",
-    description: "Multi-page e-commerce website for premium audio equipment.",
-    tech: ["Next.js", "Tailwind CSS"],
-    icon: FaHeadphones,
-    image: "/audiophile.png",
-    link: "https://audiophile-ecommerce-website-527b.vercel.app/",
-  },
-  {
-    id: 7,
-    title: "Space Tourism",
-    subtitle: "Interactive Site",
-    description: "Interactive space tourism website with stunning visuals.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    icon: FaRocket,
-    image: "/space.png",
-    link: "https://space-tourism-website-puce-chi.vercel.app/",
-  },
-  {
-    id: 8,
-    title: "Profile Card",
-    subtitle: "UI Component",
-    description: "Clean and modern profile card component.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    icon: FaUser,
-    image: "/mprofile.png",
-    link: "https://profile-i14.vercel.app/",
   },
 ];
 
@@ -129,11 +102,11 @@ function TiltCard({
       ref={cardRef}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
-      className={`tilt-card group relative rounded-2xl overflow-hidden border border-white/5 hover:border-white/15 transition-all duration-700 cursor-pointer ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+      className={`h-full flex flex-col tilt-card group relative rounded-2xl overflow-hidden border border-white/5 hover:border-white/15 transition-all duration-700 cursor-pointer ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
       style={{ transitionDelay: `${index * 80}ms`, background: "#0a0a0a" }}
     >
       {/* Image */}
-      <div className="relative h-52 overflow-hidden">
+      <div className="relative h-48 sm:h-52 overflow-hidden flex-shrink-0">
         <Image
           src={project.image}
           alt={project.title}
@@ -148,42 +121,37 @@ function TiltCard({
       </div>
 
       {/* Content */}
-      <div className="tilt-card-inner p-6">
-        <div className="flex items-start justify-between mb-3">
-          <div>
-            <p className="text-xs text-gray-500 tracking-widest uppercase mb-1">
-              {project.subtitle}
-            </p>
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="text-xl font-bold text-white hover:text-gray-400 transition-colors duration-300"
-            >
-              {project.title}
-            </a>
-          </div>
+      <div className="tilt-card-inner p-6 flex flex-col flex-grow">
+        <div className="flex flex-col items-start mb-4">
+          <p className="text-xs text-gray-500 tracking-widest uppercase mb-2">
+            {project.subtitle}
+          </p>
           <a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-white/20 transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
             onClick={(e) => e.stopPropagation()}
+            className="group/cta inline-flex items-center gap-3 w-full"
           >
-            <FaExternalLinkAlt className="text-xs" />
+            <span className="text-xl sm:text-2xl font-bold text-white relative inline-block pb-1">
+              {project.title}
+              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-white to-gray-400 scale-x-0 group-hover/cta:scale-x-100 transition-transform duration-500 origin-left"></span>
+            </span>
+            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/5 border border-white/10 group-hover/cta:bg-white group-hover/cta:border-white group-hover/cta:text-black transition-all duration-300 flex-shrink-0">
+              <FaArrowRight className="text-sm -rotate-45 group-hover/cta:rotate-0 transition-transform duration-300" />
+            </span>
           </a>
         </div>
 
-        <p className="text-gray-500 text-sm leading-relaxed mb-4">
+        <p className="text-gray-500 text-sm sm:text-base leading-relaxed mb-6 flex-grow">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-2 mt-auto">
           {project.tech.map((t) => (
             <span
               key={t}
-              className="px-2 py-0.5 text-xs bg-white/5 text-gray-500 rounded border border-white/8"
+              className="px-3 py-1 text-xs font-medium bg-white/5 text-gray-400 rounded-full border border-white/10"
             >
               {t}
             </span>
@@ -197,57 +165,71 @@ function TiltCard({
   );
 }
 
-function MobileCarousel({
+function ProjectsCarousel({
   projects,
   visible,
 }: {
   projects: typeof PROJECTS;
   visible: boolean;
 }) {
-  const [index, setIndex] = useState(0);
-  const startX = useRef(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const prev = () =>
-    setIndex((i) => (i - 1 + projects.length) % projects.length);
-  const next = () => setIndex((i) => (i + 1) % projects.length);
+  const scroll = useCallback((direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { clientWidth, scrollWidth, scrollLeft } = scrollRef.current;
+      const scrollAmount = direction === "left" ? -350 : 350;
+      
+      if (direction === "right" && scrollLeft + clientWidth >= scrollWidth - 10) {
+        scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+      } else if (direction === "left" && scrollLeft <= 10) {
+        scrollRef.current.scrollTo({ left: scrollWidth, behavior: "smooth" });
+      } else {
+        scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    }
+  }, []);
 
-  const onTouchStart = (e: React.TouchEvent) => {
-    startX.current = e.touches[0].clientX;
-  };
-  const onTouchEnd = (e: React.TouchEvent) => {
-    const diff = startX.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) diff > 0 ? next() : prev();
-  };
+  useEffect(() => {
+    if (!visible || isHovered) return;
+    const interval = setInterval(() => {
+      scroll("right");
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [visible, isHovered, scroll]);
 
   return (
     <div
-      className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      className={`relative transition-all duration-700 w-full ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <div
-        onTouchStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
-        className="overflow-hidden"
+      {/* Navigation Buttons - Hidden on touch devices */}
+      <button
+        onClick={() => scroll("left")}
+        className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 border border-white/10 items-center justify-center text-white backdrop-blur-md transition-all duration-300 group"
       >
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${index * 100}%)` }}
-        >
-          {projects.map((p, i) => (
-            <div key={p.id} className="w-full flex-shrink-0">
-              <TiltCard project={p} index={i} visible={visible} />
-            </div>
-          ))}
-        </div>
-      </div>
+        <FaChevronLeft className="group-hover:-translate-x-1 transition-transform" />
+      </button>
+      <button
+        onClick={() => scroll("right")}
+        className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 border border-white/10 items-center justify-center text-white backdrop-blur-md transition-all duration-300 group"
+      >
+        <FaChevronRight className="group-hover:translate-x-1 transition-transform" />
+      </button>
 
-      {/* Dot indicators */}
-      <div className="flex justify-center gap-2 mt-6">
-        {projects.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIndex(i)}
-            className={`rounded-full transition-all duration-300 ${i === index ? "w-6 h-2 bg-white" : "w-2 h-2 bg-white/20"}`}
-          />
+      {/* Carousel Container */}
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-12 pt-4 px-4 sm:px-20 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+      >
+        {projects.map((p, i) => (
+          <div
+            key={p.id}
+            className="w-[85vw] sm:w-[320px] lg:w-[350px] flex-shrink-0 snap-center h-full"
+          >
+            <TiltCard project={p} index={i} visible={visible} />
+          </div>
         ))}
       </div>
     </div>
@@ -270,10 +252,10 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" ref={ref} className="py-32 px-6 relative">
+    <section id="projects" ref={ref} className="py-32 relative overflow-hidden">
       <div className="gold-line absolute top-0 left-0 right-0" />
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6">
         <div
           className={`text-center mb-20 transition-all duration-700 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
@@ -284,18 +266,11 @@ export default function Projects() {
             Featured Work
           </h2>
         </div>
-
-        {/* Mobile: swipeable carousel */}
-        <div className="sm:hidden">
-          <MobileCarousel projects={PROJECTS} visible={vis} />
-        </div>
-
-        {/* Desktop: grid */}
-        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {PROJECTS.map((p, i) => (
-            <TiltCard key={p.id} project={p} index={i} visible={vis} />
-          ))}
-        </div>
+      </div>
+        
+      {/* Carousel replaces both Mobile & Desktop views */}
+      <div className="w-full">
+        <ProjectsCarousel projects={PROJECTS} visible={vis} />
       </div>
 
       <div className="gold-line absolute bottom-0 left-0 right-0" />
