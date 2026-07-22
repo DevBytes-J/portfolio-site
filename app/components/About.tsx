@@ -18,7 +18,7 @@ export default function About() {
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         {/* Image side */}
-        <div className={`relative transition-all duration-1000 ${vis ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}>
+        <div className={`relative max-w-sm mx-auto transition-all duration-1000 ${vis ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}>
           {/* Decorative frame */}
           <div className="absolute -inset-4 border border-white/8 rounded-3xl" />
           <div className="absolute -inset-8 border border-white/25/5 rounded-3xl" />
@@ -33,11 +33,11 @@ export default function About() {
 
           <div className="relative rounded-2xl overflow-hidden">
             <Image
-              src="/profile.jpeg"
+              src="/me.jpeg"
               alt="Joanna Bassey"
-              width={300}
+              width={400}
               height={400}
-              className="w-full h-auto object-cover"
+              className="w-full aspect-square object-cover"
             />
             {/* Gold overlay gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

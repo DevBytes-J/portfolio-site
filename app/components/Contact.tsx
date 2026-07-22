@@ -15,8 +15,15 @@ export default function Contact() {
     return () => obs.disconnect();
   }, []);
 
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
+  const wordCount = formData.message.trim().split(/\s+/).filter(w => w.length > 0).length;
+  const isMessageValid = wordCount >= 5;
+  const isNameValid = formData.name.trim().length > 0;
+  const isFormValid = isNameValid && isEmailValid && isMessageValid;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isFormValid) return;
     setStatus("sending");
     try {
       const res = await fetch("https://formspree.io/f/mzznwwnq", {
@@ -30,7 +37,7 @@ export default function Contact() {
     setTimeout(() => setStatus("idle"), 4000);
   };
 
-  const inputClass = "w-full bg-transparent border-b border-white/10 focus:border-white/25 py-3 text-white placeholder-gray-600 outline-none transition-colors duration-300 text-sm";
+  const inputClass = "w-full bg-transparent border-b border-white/10 focus:border-white/50 py-3 text-white placeholder-gray-600 outline-none transition-colors duration-300 text-sm";
 
   return (
     <section id="contact" ref={ref} className="py-32 px-6 relative overflow-hidden"
@@ -85,39 +92,50 @@ export default function Contact() {
           <form onSubmit={handleSubmit}
             className={`lg:col-span-3 space-y-8 transition-all duration-700 delay-300 ${vis ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <div>
-                <label className="text-xs tracking-widest uppercase text-gray-600 block mb-2">Name</label>
-                <input type="text" name="name" value={formData.name} required placeholder="Your name"
+              <div className="group">
+                <label htmlFor="name" className="text-xs tracking-widest uppercase text-gray-600 group-focus-within:text-white transition-colors duration-300 block mb-2 cursor-pointer">Name</label>
+                <input id="name" type="text" name="name" value={formData.name} required placeholder="Your name"
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className={inputClass} />
               </div>
-              <div>
-                <label className="text-xs tracking-widest uppercase text-gray-600 block mb-2">Email</label>
-                <input type="email" name="email" value={formData.email} required placeholder="your@email.com"
+              <div className="group">
+                <label htmlFor="email" className="text-xs tracking-widest uppercase text-gray-600 group-focus-within:text-white transition-colors duration-300 block mb-2 cursor-pointer">Email</label>
+                <input id="email" type="email" name="email" value={formData.email} required placeholder="your@email.com"
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className={inputClass} />
               </div>
             </div>
 
-            <div>
-              <label className="text-xs tracking-widest uppercase text-gray-600 block mb-2">Message</label>
-              <textarea rows={5} name="message" value={formData.message} required placeholder="Tell me about your project..."
+            <div className="group">
+              <label htmlFor="message" className="text-xs tracking-widest uppercase text-gray-600 group-focus-within:text-white transition-colors duration-300 block mb-2 cursor-pointer">Message</label>
+              <textarea id="message" rows={5} name="message" value={formData.message} required placeholder="Tell me about your project..."
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className={`${inputClass} resize-none`} />
             </div>
 
             <div className="flex items-center gap-6">
-              <button type="submit" disabled={status === "sending"}
-                className="magnetic group relative px-10 py-4 rounded-full font-semibold text-black overflow-hidden disabled:opacity-60"
+              <button type="submit" disabled={status === "sending" || !isFormValid}
+                className="magnetic group relative px-10 py-4 rounded-full font-semibold text-black overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
                 style={{ background: "linear-gradient(135deg, #e0e0e0, #ffffff)" }}>
                 <span className="relative z-10">
                   {status === "sending" ? "Sending..." : "Send Message"}
                 </span>
-                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
+                {!(status === "sending" || !isFormValid) && (
+                  <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
+                )}
               </button>
 
               {status === "success" && <p className="text-green-400 text-sm">Message sent ✓</p>}
               {status === "error" && <p className="text-red-400 text-sm">Failed. Try again.</p>}
+              
+              <div className="flex flex-col gap-1">
+                {!isFormValid && formData.email.length > 0 && !isEmailValid && (
+                  <p className="text-yellow-500/80 text-xs">Please enter a valid email.</p>
+                )}
+                {!isFormValid && formData.message.length > 0 && wordCount < 5 && (
+                  <p className="text-yellow-500/80 text-xs">Message must be at least 5 words.</p>
+                )}
+              </div>
             </div>
           </form>
         </div>

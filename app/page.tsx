@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import CursorCanvas from "./components/CursorCanvas";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Hero from "./components/Hero";
@@ -16,7 +15,6 @@ export default function Portfolio() {
 
   return (
     <div className="bg-[#050505] text-white overflow-x-hidden">
-      <CursorCanvas />
       <Navbar onMenuClick={() => setIsSidebarOpen(true)} />
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       <main className="relative z-10">
